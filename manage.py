@@ -1,7 +1,9 @@
 #!/usr/bin/env python
+from flask_script import Manager, Shell
+
 from app import create_app, db
 from app.models import Food
-from flask_script import Manager, Shell
+from scraping_with_bs4 import get_products_from_tables
 
 
 app = create_app()
@@ -15,6 +17,14 @@ def make_shell_context():
         'Food': Food
     }
 manager.add_command("shell", Shell(make_context=make_shell_context))
+
+
+@manager.command
+def bootstrap():
+    db.create_all()
+    data = get_products_from_tables()
+    db.session.add_all(data)
+    db.session.commit()
 
 
 @manager.command
