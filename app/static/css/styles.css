@@ -1,0 +1,43 @@
+body {
+    background-color: #fffdcb;
+}
+
+.navbar-brand
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin:0 auto;
+}
+.navbar-toggle {
+    z-index:3;
+}
+
+input {
+    margin: 15px 10px 15px 15px;
+    border-radius: 5px;
+}
+input#tags{
+    border-radius: 10px;
+    height: 35px;
+    width: 55%;
+}
+
+.btn-glyphicon {
+    padding:8px;
+    background:#ffffff;
+    margin-right:4px;
+}
+.icon-btn {
+    padding: 1px 15px 3px 2px;
+    border-radius:50px;
+}
+
+table {
+    background: white;
+}
+
+a.btn {
+    margin-left: 10px;
+}

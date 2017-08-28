@@ -1,0 +1,125 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %} Calculator of Nutrition {% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-default" role="navigation">
+      <a class="navbar-brand" href="{{ url_for('main.home') }}">Calculator of Nutrition</a>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <div class="col-md-8 col-md-offset-2 text-center">
+        <label for="weight">My weight: </label>
+        <input id="weight" type="number">
+        <br>
+        <label for="tags">Products: </label>
+        <input id="tags">
+        <a class="btn icon-btn btn-success" href="#">
+            <span id="add_btn" class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>
+            Add
+        </a>
+
+        <hr>
+
+        <div class="well well-sm">
+            <label for="well-input">Product name</label>
+            <input id="well-input" type="number">
+            (gram)
+            <a class="btn icon-btn btn-primary" href="#">
+                <span class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span>
+                Add.
+            </a>
+            <a class="btn icon-btn btn-danger" href="#">
+                <span class="glyphicon btn-glyphicon glyphicon-trash img-circle text-danger"></span>
+                Don't add.
+            </a>
+        </div>
+
+        <hr>
+        <h2>Products Eaten</h2>
+    </div>
+
+    <div class="col-md-6 col-md-offset-3 text-left">
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Product name</th>
+                <th>weight</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Грудка куряча</td>
+                <td>150</td>
+              </tr>
+              <tr>
+                <td>Гречана каша</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td>Сік апельсиновий</td>
+                <td>100</td>
+              </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="col-md-6 col-md-offset-3 text-center">
+        <button type="button" class="btn btn-primary btn-lg">Submit</button>
+    </div>
+
+    <div class="col-md-8 col-md-offset-2 text-center">
+        <hr>
+        <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Nutrients</th>
+                <th>Need (gram)</th>
+                <th>Eaten (gram)</th>
+                <th>Complete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="danger">
+                <td>protein</td>
+                <td>200</td>
+                <td>150</td>
+                <td>no</td>
+              </tr>
+              <tr class="success">
+                <td>fat</td>
+                <td>50</td>
+                <td>60</td>
+                <td>yes</td>
+              </tr>
+              <tr class="success">
+                <td>carbohydrate</td>
+                <td>1000</td>
+                <td>1100</td>
+                <td>yes</td>
+              </tr>
+              <tr class="success">
+                <td>calories</td>
+                <td>1400</td>
+                <td>1500</td>
+                <td>yes</td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="{{ url_for('static', filename='js/autocomplete.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/events.js') }}"></script>
+{% endblock %}
