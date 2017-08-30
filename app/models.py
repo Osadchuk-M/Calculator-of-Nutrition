@@ -14,3 +14,23 @@ class Food(db.Model):
 
     def __repr__(self):
         return '<Food %s>' % self.name
+
+    @staticmethod
+    def nutrients_need(weight):
+        return {
+            'protein': weight * 2.5,
+            'fat': weight * 1.2,
+            'carbohydrate': weight * 5
+        }
+
+    @staticmethod
+    def nutrients_got(products):
+        products = [(Food.query.filter_by(name=product[0]).first(), float(product[1])) for product in products]
+        protein = sum([product[0].protein * product[1] for product in products])
+        fat = sum([product[0].fat * product[1] for product in products])
+        carbohydrate = sum([product[0].carbohydrate * product[1] for product in products])
+        return {
+            'protein': protein,
+            'fat': fat,
+            'carbohydrate': carbohydrate
+        }
