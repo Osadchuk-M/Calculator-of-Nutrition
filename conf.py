@@ -12,7 +12,7 @@ class Config:
     enable_search = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
                               'sqlite:///' + os.path.join(basedir, 'data.sqlite')
-    SSL_DISABLE = True # bool(os.environ.get('SSL_DISABLE'))
+    SSL_DISABLE = bool(os.environ.get('SSL_DISABLE'))
     DEBUG = True
 
     @staticmethod
