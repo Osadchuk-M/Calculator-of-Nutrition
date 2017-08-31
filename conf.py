@@ -10,8 +10,7 @@ class Config:
     MAIL_SERVER = 'smtp.googlemail.com'
     WHOOSH_BASE = os.path.join(basedir, 'whoosh_index')
     enable_search = True
-    SQLALCHEMY_DATABASE_URI = os.environ.get('MY_DATABASE_URL') or \
-                              'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
     SSL_DISABLE = bool(os.environ.get('SSL_DISABLE'))
     DEBUG = True
 
